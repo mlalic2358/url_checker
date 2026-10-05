@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: url-checker-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: url-checker
+  template:
+    metadata:
+      labels:
+        app: url-checker
+    spec:
+      containers:
+      - name: url-checker
+        image: ghcr.io/mlalic2358/url_checker:latest
+        ports:
+        - containerPort: 2112
